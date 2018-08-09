@@ -17,9 +17,13 @@
       </form>
       <p>發表時間：{{ article.pubDateTime|date:'Y-m-d H:i' }}</p>
       <div class="articleContent">{{ article.content|linebreaks|truncatechars_html:30 }}</div>
+       <p class=like>
+          <img id=like src="{% static 'main/img/like.png' %}" alt="Like"> {{ article.likes.count }}
+        </p>
       {% for comment in comments %}
         {% if comment.article == article %}
         <div class="commentDiv">
+          <span class="commentAuthor">{{ comment.user.fullName }}</span>
           <span class="comment">{{ comment.content }}</span>
           <br>
           <span class="commentTime">{{ comment.pubDateTime|date:'m月d日 H:i' }}</span>
