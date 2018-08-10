@@ -87,9 +87,9 @@ if DEBUG:   # Running on the development environment
             'PASSWORD': 'blog',
             'HOST': 'localhost',
             'PORT': '',
-            
+        }
     }
-else:   # Running on Heroku
+else:  # Running on Heroku
     # Parse database configuration from $DATABASE_URL
     import dj_database_url
     DATABASES = {'default':dj_database_url.config()}
